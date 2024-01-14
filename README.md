@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# React PhoneBook
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+📞 Unlock the Power of Connectivity with Our Phone Book App!
+Looking for a seamless way to manage your contacts? Look no further! Our cutting-edge phone book application is designed to simplify your life and keep your contacts organized.
 
-In the project directory, you can run:
+🌐 Accessible Anywhere, Anytime:
+Access your contacts from anywhere in the world. Whether you're at home, at the office, or on the go, your phone book is just a tap away.
 
-### `npm start`
+🔒 Privacy and Security:
+Your personal account ensures that your contacts are private and secure. Rest easy knowing that only you have access to your valuable connections.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+🚀 Effortless Management:
+Add, edit, or delete contacts with ease. Our user-friendly interface makes managing your phone book a breeze, saving you time and effort.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+🔍 Quick Search:
+Find the right contact in seconds with our powerful search feature. No more scrolling endlessly – locate the information you need swiftly.
 
-### `npm test`
+📱 Try it Now – Hassle-Free Login:
+Explore the functionality with pre-entered login details on our Login page. Experience the convenience firsthand!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
+To install the project dependencies, run the following command:
+```bash
+npm install
+```
+## Usage
+To run the project use:
+```bash
+npm start
+```
+## Technologies Used
+![ ](https://github-readme-tech-stack.vercel.app/api/cards?title=Technologies+Used&align=center&titleAlign=center&lineCount=1&width=600&bg=%230D1117&badge=%23161B22&border=%2321262D&titleColor=%2358A6FF&line1=react%2Creact%2C00e3ff%3Bredux%2Credux%2Cf7ef7d%3Bwebpack%2Cwebpack%2Cbe58ff%3Btypescript%2Ctypescript%2C008afa%3B)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=Redux&logoColor=white) The official, opinionated, batteries-included toolset for efficient Redux development. [Redux Toolkit Documentation](https://redux-toolkit.js.org/)
+- ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=React-Router&logoColor=white) Declarative routing for React.js. [React Router Documentation](https://reactrouter.com/)
+- ![Styled Components](https://img.shields.io/badge/Styled_Components-DB7093?style=flat-square&logo=Styled-Components&logoColor=white) CSS-in-JS library for styling React components. [Styled Components Documentation](https://styled-components.com/)
+- ![Material-UI](https://img.shields.io/badge/MUI-0081CB?style=flat-square&logo=Material-UI&logoColor=white) React components that implement Google's Material Design. [Material-UI Documentation](https://mui.com/)
+- ![Redux Persist](https://img.shields.io/badge/Redux_Persist-99424F?style=flat-square&logo=Redux&logoColor=white) Persist and rehydrate a Redux store. [Redux Persist Documentation](https://github.com/rt2zz/redux-persist)
+- ![Axios](https://img.shields.io/badge/Axios-56A2C7?style=flat-square&logo=Axios&logoColor=white) A promise-based HTTP client for the browser and Node.js. [Axios Documentation](https://axios-http.com/)
+- ![Formik](https://img.shields.io/badge/Formik-61DAFB?style=flat-square&logo=Formik&logoColor=white) Build forms in React, without tears. [Formik Documentation](https://formik.org/)
