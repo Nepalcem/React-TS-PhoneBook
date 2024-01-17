@@ -12,6 +12,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { AuthorizationInterface } from "components/App/App.types";
 import { AuthorizeReducer } from "./authorize/slice";
 
 const authorizePersistConfig = {
@@ -24,7 +25,10 @@ export const store = configureStore({
   reducer: {
     contacts: contactsSlice.reducer,
     filter: filterSlice.reducer,
-    authorize: persistReducer(authorizePersistConfig, AuthorizeReducer),
+    authorize: persistReducer<AuthorizationInterface>(
+      authorizePersistConfig,
+      AuthorizeReducer
+    ),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -35,3 +39,5 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof store.getState>

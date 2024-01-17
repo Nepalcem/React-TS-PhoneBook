@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState, ChangeEvent, FormEvent } from "react";
 import { FormStyled } from "./Form.styled";
 import { FaPlus } from "react-icons/fa";
 import { LuLoader2 } from "react-icons/lu";
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getContacts, getIsAddContactPending } from "redux/selectors";
 import { FormTextField } from "components/pages/registerPage/RegisterPage.styled";
 import { toast } from "react-toastify";
+import { ContactObject } from "components/App/App.types";
 
 const Form: FC = () => {
   const [name, setName] = useState<string>("");
@@ -15,7 +16,7 @@ const Form: FC = () => {
   const contacts = useSelector(getContacts);
   const isAddContactLoading = useSelector(getIsAddContactPending);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.name === "name") {
       setName(e.currentTarget.value);
     } else {
@@ -23,7 +24,7 @@ const Form: FC = () => {
     }
   };
 
-  const addContactItem = (name, number) => {
+  const addContactItem = (name: string, number: string) => {
     const existingContact = contacts.find(
       (contact) => name.toLowerCase() === contact.name.toLowerCase()
     );
@@ -38,7 +39,7 @@ const Form: FC = () => {
     return userObj;
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (name.trim().length === 0 || number.trim().length === 0) {
       toast.warning("Name or phone must not be empty!");
@@ -48,7 +49,7 @@ const Form: FC = () => {
     if (newContact === null) {
       return alert(`${name} is already in contacts`);
     } else {
-      dispatch(addContact(addContactItem(name, number)));
+      (dispatch as any)(addContact(newContact as ContactObject));
       setName("");
       setNumber("");
     }
@@ -59,7 +60,7 @@ const Form: FC = () => {
       <FormTextField
         type="text"
         name="name"
-        pattern="^[A-Za-z\u0080-\uFFFF ']+$"
+        inputProps={{ pattern: "^[A-Za-z\u0080-\uFFFF ' ]+$" }}
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         onChange={handleChange}
@@ -71,7 +72,7 @@ const Form: FC = () => {
       <FormTextField
         type="tel"
         name="number"
-        pattern="^(\+?[0-9.\(\)\-\s]*)$"
+        inputProps={{ pattern: "^(+?[0-9.()-s]*)$" }}
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         onChange={handleChange}
