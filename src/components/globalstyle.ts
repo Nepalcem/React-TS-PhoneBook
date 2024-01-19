@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import bgImage from "components/media/notebook_paper.jpg"
-import { desktop } from "./utils/globalVariables";
+import bgImage from "components/media/notebook_paper.jpg";
+import { desktop } from "../utils/globalVariables";
 
 export const GlobalStyle = createGlobalStyle`
 body {

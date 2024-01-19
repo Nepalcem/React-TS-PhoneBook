@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { desktop, mainBlueAccent } from "components/utils/globalVariables";
+import { desktop, mainBlueAccent } from "utils/globalVariables";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { SlGlobe } from "react-icons/sl";
 import { FaLock } from "react-icons/fa";

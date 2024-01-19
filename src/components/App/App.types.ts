@@ -10,3 +10,9 @@ export interface AuthorizationInterface {
   isLoggedIn: boolean;
   isRefreshing: boolean;
 }
+
+export interface IUserObject {
+  name?: string;
+  email: string;
+  password: string;
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import Form from "components/AddContactForm/Form";
 import Filter from "components/Filter/Filter";
 import ContactsList from "components/contactsList/ContactsList";

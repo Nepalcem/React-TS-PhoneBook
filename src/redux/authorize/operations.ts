@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { RootState } from "redux/store";
+import { IUserObject } from "components/App/App.types";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
@@ -15,7 +16,7 @@ const clearAuthorizeHeader = () => {
 
 export const register = createAsyncThunk(
   "authorize/register",
-  async (credentials, thunkAPI) => {
+  async (credentials: IUserObject, thunkAPI) => {
     try {
       const response = await axios.post("/users/signup", credentials);
       setAuthorizeHeader(response.data.token);
@@ -30,14 +31,14 @@ export const register = createAsyncThunk(
           "Not able to register user with such credentials! Try different ones."
         );
       }
-     return thunkAPI.rejectWithValue((error as AxiosError).message);
+      return thunkAPI.rejectWithValue((error as AxiosError).message);
     }
   }
 );
 
 export const logIn = createAsyncThunk(
   "authorize/login",
-  async (credentials, thunkAPI) => {
+  async (credentials: IUserObject, thunkAPI) => {
     try {
       const response = await axios.post("/users/login", credentials);
       setAuthorizeHeader(response.data.token);
@@ -50,7 +51,7 @@ export const logIn = createAsyncThunk(
       ) {
         toast.error("Not able to Log In with such credentials! Try again..");
       }
-       return thunkAPI.rejectWithValue((error as AxiosError).message);
+      return thunkAPI.rejectWithValue((error as AxiosError).message);
     }
   }
 );

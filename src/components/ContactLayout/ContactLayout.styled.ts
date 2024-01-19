@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { brownAccent } from "components/utils/globalVariables";
+import { brownAccent } from "utils/globalVariables";
 
 export const ContentBlock = styled.div`
   min-width: 248px;
