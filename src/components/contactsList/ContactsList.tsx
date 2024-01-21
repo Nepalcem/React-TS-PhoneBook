@@ -43,7 +43,9 @@ const ContactsList = () => {
             <EditModal id={id} name={name} number={number} />
             <StyledTrashIcon
               onClick={() => {
-                handleDelete(id, name);
+                if (id !== undefined) {
+                  handleDelete(id, name);
+                }
               }}
             ></StyledTrashIcon>
           </li>
