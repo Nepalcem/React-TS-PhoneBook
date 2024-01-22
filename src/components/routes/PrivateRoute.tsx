@@ -9,7 +9,7 @@ interface PrivateProps {
 
 const PrivateRoute: FC<PrivateProps> = ({
   component: Component,
-  redirectTo,
+  redirectTo = '/',
 }) => {
   const { isLoggedIn, isRefreshing } = useAuthorize();
   const shouldRedirect = !isLoggedIn && !isRefreshing;
