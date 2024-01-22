@@ -1,7 +1,7 @@
 # React TypeScript PhoneBook
 **Times used "Any" Type: 0**. 😎
 
-*For some reason Github pages refuse to work with latest versions of Browser router from react-router-dom when it comes to 404 pages and Private/Restricted routes, despite the fact that browserRouter is working fine locally , so I've replaced it with the HashRouter instead .*
+*For some reason Github pages refuse to work with latest versions of <BrowserRouter> from react-router-dom when it comes to 404 pages and Private/Restricted routes, despite the fact that browserRouter is working fine locally , so I've replaced it with the HashRouter instead .*
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
