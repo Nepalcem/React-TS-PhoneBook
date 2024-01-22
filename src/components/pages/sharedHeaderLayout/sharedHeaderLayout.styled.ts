@@ -26,22 +26,34 @@ export const Header = styled.header`
   border: 1px solid rgba(133, 255, 250, 0.3);
 `;
 
-interface NavProps {
-  alignItemsBaseline: boolean;
-}
+type StyledNavProps = {
+  $alignItemsBaseline: boolean;
 
-export const StyledNav =
-  styled.nav <
-  NavProps>`
+};
+
+export const StyledNav = styled.nav<StyledNavProps>`
   display: flex;
   gap: 5px;
   justify-content: space-between;
   ${(props) =>
-    props.alignItemsBaseline &&
+    props.$alignItemsBaseline &&
     css`
       align-items: baseline;
     `};
 `;
+
+// export const StyledNav =
+//   styled.nav <
+//   NavProps>`
+//   display: flex;
+//   gap: 5px;
+//   justify-content: space-between;
+//   ${(props) =>
+//     props.alignItemsBaseline &&
+//     css`
+//       align-items: baseline;
+//     `};
+// `;
 
 export const Logo = styled.p`
   font-weight: 700;

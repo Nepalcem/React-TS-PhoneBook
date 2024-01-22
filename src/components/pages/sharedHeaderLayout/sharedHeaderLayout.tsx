@@ -11,14 +11,14 @@ import UserMenu from "components/userMenu/UserMenu";
 import LoginMenu from "components/loginMenu/LoginMenu";
 import Footer from "components/Footer/Footer";
 
-export const SharedHeaderLayout = () => {
+export const SharedHeaderLayout: React.FC = () => {
   const { isLoggedIn } = useAuthorize();
   const showLoginMenu = !isLoggedIn;
 
   return (
     <Container>
       <Header>
-        <StyledNav alignItemsBaseline={showLoginMenu}>
+        <StyledNav $alignItemsBaseline={showLoginMenu}>
           <NavigationLink to="/">Home</NavigationLink>
           {isLoggedIn && (
             <NavigationLink to="/contacts">Contacts</NavigationLink>

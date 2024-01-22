@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 interface ContactListWrapperProps {
-  haveContacts: boolean;
+  $haveContacts: boolean;
 }
 
 export const ContactListWrapper = styled.div<ContactListWrapperProps>`
   position: relative;
-  min-height: ${(props) => (props.haveContacts ? "auto" : "150px")};
+  min-height: ${(props) => (props.$haveContacts ? "auto" : "150px")};
 `;
 
 export const ContactsStyled = styled.ul`

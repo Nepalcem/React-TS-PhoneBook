@@ -30,7 +30,7 @@ const ContactsList = () => {
   };
 
   return (
-    <ContactListWrapper haveContacts={haveContacts}>
+    <ContactListWrapper $haveContacts={haveContacts}>
       {isLoading && !errorMessage && <Loader />}
       <ContactsStyled>
         {contacts.map(({ name, id, number }) => (
