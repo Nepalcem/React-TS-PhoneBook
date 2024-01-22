@@ -51,11 +51,14 @@ const App = (): React.ReactElement => {
               <Route
                 path="contacts"
                 element={
-                  <PrivateRoute component={ContactsPage} redirectTo={"/login"} />
+                  <PrivateRoute
+                    component={ContactsPage}
+                    redirectTo={"/login"}
+                  />
                 }
               />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
-            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </>
       )}
