@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/react-ts-phonebook">
+        <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
           <App />
           <GlobalStyle />
         </BrowserRouter>
