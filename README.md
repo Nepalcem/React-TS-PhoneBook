@@ -1,4 +1,5 @@
-# React PhoneBook
+# React TypeScript PhoneBook
+**Times used "Any" Type: 0**. 😎
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
