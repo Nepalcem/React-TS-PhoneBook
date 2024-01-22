@@ -42,19 +42,6 @@ export const StyledNav = styled.nav<StyledNavProps>`
     `};
 `;
 
-// export const StyledNav =
-//   styled.nav <
-//   NavProps>`
-//   display: flex;
-//   gap: 5px;
-//   justify-content: space-between;
-//   ${(props) =>
-//     props.alignItemsBaseline &&
-//     css`
-//       align-items: baseline;
-//     `};
-// `;
-
 export const Logo = styled.p`
   font-weight: 700;
   margin: 0;

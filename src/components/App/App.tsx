@@ -14,7 +14,7 @@ const RegisterPage = lazy(() => import("components/pages/registerPage/RegisterPa
 const LoginPage = lazy(() => import("components/pages/loginPage/LoginPage"));
 const ContactsPage = lazy(() => import("components/pages/ContactsPage"));
 
-const App = (): React.ReactElement | null => {
+const App = (): React.ReactElement => {
   const { isRefreshing } = useAuthorize();
   const useAppDispatch: () => AppDispatch = useDispatch;
   const dispatch = useAppDispatch();
@@ -24,38 +24,45 @@ const App = (): React.ReactElement | null => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? null : (
-      <>
-        <ToastContainer autoClose={5000} theme="colored" />
-        <Routes>
-          <Route path="/" element={<SharedHeaderLayout />}>
-            <Route index element={<HomePage />} />
-            <Route
-              path="register"
-              element={
-                <RestrictedRoute
-                  component={RegisterPage}
-                  redirectTo="/contacts"
-                />
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
-              }
-            />
-            <Route
-              path="contacts"
-              element={
-                <PrivateRoute component={ContactsPage} redirectTo="/login" />
-              }
-            />
-          </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </>
-    )
+  return (
+    <>
+      {!isRefreshing && (
+        <>
+          <ToastContainer autoClose={5000} theme="colored" />
+          <Routes>
+            <Route path="/" element={<SharedHeaderLayout />}>
+              <Route index element={<HomePage />} />
+              <Route
+                path="register"
+                element={
+                  <RestrictedRoute
+                    component={RegisterPage}
+                    redirectTo="/contacts"
+                  />
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <RestrictedRoute
+                    component={LoginPage}
+                    redirectTo="/contacts"
+                  />
+                }
+              />
+              <Route
+                path="contacts"
+                element={
+                  <PrivateRoute component={ContactsPage} redirectTo="/login" />
+                }
+              />
+            </Route>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </>
+      )}
+    </>
+  );
 };
 
 export default App;
