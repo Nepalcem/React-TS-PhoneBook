@@ -2,18 +2,20 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { ContactListWrapper, ContactsStyled } from "./ContactsList.styled";
 import { StyledTrashIcon } from "./TrashIcon.styled";
-import { getError, getIsLoading, getVisibleContacts } from "redux/selectors";
+import * as selectors from "../../redux/selectors";
 import { useSelector } from "react-redux";
 import { deleteContact } from "api-functions/api";
 import EditModal from "components/EditModal/EditModal";
 import CallIcon from "./CallIcon";
 import { Loader } from "./ContactsPreloader/ContactsPreloader";
+import { AppDispatch } from "redux/store";
 
 const ContactsList = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const errorMessage = useSelector(getError);
-  const contacts = useSelector(getVisibleContacts);
+  const useAppDispatch: () => AppDispatch = useDispatch;
+  const dispatch = useAppDispatch();
+  const isLoading = useSelector(selectors.getIsLoading);
+  const errorMessage = useSelector(selectors.getError);
+  const contacts = useSelector(selectors.getVisibleContacts);
 
   const haveContacts = !!contacts.length;
 
@@ -23,7 +25,7 @@ const ContactsList = () => {
     );
 
     if (isConfirmed) {
-      (dispatch as any)(deleteContact(id));
+      dispatch(deleteContact(id));
     }
   };
 

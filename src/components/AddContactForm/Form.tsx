@@ -3,18 +3,22 @@ import { FormStyled } from "./Form.styled";
 import { FaPlus } from "react-icons/fa";
 import { LuLoader2 } from "react-icons/lu";
 import { addContact } from "api-functions/api";
-import { useDispatch, useSelector } from "react-redux";
-import { getContacts, getIsAddContactPending } from "redux/selectors";
+// import { getContacts, getIsAddContactPending } from "redux/selectors";
+import * as selectors from "../../redux/selectors";
+
 import { FormTextField } from "components/pages/registerPage/RegisterPage.styled";
 import { toast } from "react-toastify";
-import { ContactObject } from "components/App/App.types";
+import { useAppDispatch, useAppSelector } from "components/hooks/typedHooks";
+
 
 const Form: FC = () => {
   const [name, setName] = useState<string>("");
   const [number, setNumber] = useState<string>("");
-  const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const isAddContactLoading = useSelector(getIsAddContactPending);
+ 
+  const dispatch = useAppDispatch();
+  
+  const contacts = useAppSelector(selectors.getContacts);
+  const isAddContactLoading = useAppSelector(selectors.getIsAddContactPending);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.name === "name") {
@@ -49,7 +53,7 @@ const Form: FC = () => {
     if (newContact === null) {
       return alert(`${name} is already in contacts`);
     } else {
-      (dispatch as any)(addContact(newContact as ContactObject));
+      dispatch(addContact(newContact));
       setName("");
       setNumber("");
     }

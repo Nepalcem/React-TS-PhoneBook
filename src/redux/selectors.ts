@@ -1,14 +1,18 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-export const getContacts = (state: RootState) => state.contacts.items;
-export const getIsLoading = (state: RootState) => state.contacts.isLoading;
-export const getError = (state: RootState) => state.contacts.error;
-export const getFilter = (state: RootState) => state.filter;
-export const getIsAddContactPending = (state: RootState) =>
+const getIsLoggedIn = (state: RootState) => state.authorize.isLoggedIn;
+const getUser = (state: RootState) => state.authorize.user;
+const getIsRefreshing = (state: RootState) =>
+  state.authorize.isRefreshing;
+const getContacts = (state: RootState) => state.contacts.items;
+const getIsLoading = (state: RootState) => state.contacts.isLoading;
+const getError = (state: RootState) => state.contacts.error;
+const getFilter = (state: RootState) => state.filter;
+const getIsAddContactPending = (state: RootState) =>
   state.contacts.isAddContactPending;
 
-export const getVisibleContacts = createSelector(
+const getVisibleContacts = createSelector(
   [getContacts, getFilter],
   (contacts, filterValue) => {
     const lowerCaseFilterValue = filterValue.toLowerCase();
@@ -17,3 +21,15 @@ export const getVisibleContacts = createSelector(
     );
   }
 );
+
+export {
+  getContacts,
+  getIsLoading,
+  getError,
+  getFilter,
+  getIsAddContactPending,
+  getVisibleContacts,
+  getIsLoggedIn,
+  getUser,
+  getIsRefreshing
+};

@@ -6,15 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { FormTextField } from "components/pages/registerPage/RegisterPage.styled";
 import { toast } from "react-toastify";
 import { updateContact } from "api-functions/api";
-import { getIsAddContactPending } from "redux/selectors";
+import * as selectors from "../../../redux/selectors";
 
 import { ContactObject } from "components/App/App.types";
+import { AppDispatch } from "redux/store";
 
 const ModalForm: FC<ContactObject> = ({ id, name, number }) => {
   const [contactName, setContactName] = useState<string>(name);
   const [contactNumber, setContactNumber] = useState<string>(number);
-  const dispatch = useDispatch();
-  const isAddContactLoading = useSelector(getIsAddContactPending);
+  const useAppDispatch: () => AppDispatch = useDispatch;
+  const dispatch = useAppDispatch();
+  const isAddContactLoading = useSelector(selectors.getIsAddContactPending);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.name === "name") {
@@ -36,7 +38,7 @@ const ModalForm: FC<ContactObject> = ({ id, name, number }) => {
       number: contactNumber.trim(),
     };
 
-    (dispatch as any)(updateContact(updatedContact as ContactObject));
+    dispatch(updateContact(updatedContact as ContactObject));
   };
 
   return (
